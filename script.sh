@@ -1,8 +1,10 @@
-./mvnw package -DskipTests
-docker build -t vampir/spring-app .
-docker push vampir/spring-app:latest
-kubectl delete -f spring-app.yaml
-kubectl apply -f spring-app.yaml
-kubectl wait --for=condition=ready pod -l app=spring-app
-sleep 10
-kubectl logs -l app=spring-app
+#./mvnw package -DskipTests
+#docker build -t vampir/spring-app .
+#docker push vampir/spring-app:latest
+#kubectl delete -f spring-app.yaml
+#kubectl apply -f spring-app.yaml
+#kubectl wait --for=condition=ready pod -l app=spring-app
+#sleep 10
+#kubectl logs -l app=spring-app
+helm delete spring-app
+helm install spring-app spring-app/
