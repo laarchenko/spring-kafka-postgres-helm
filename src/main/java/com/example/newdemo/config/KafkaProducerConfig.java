@@ -16,7 +16,10 @@ import java.util.Map;
 public class KafkaProducerConfig {
 
 
-    private String bootstrapServers="my-kafka-0.my-kafka-headless.default.svc.cluster.local:9092";
+    @Value("${spring.kafka.bootstrap-servers}")
+    private String bootstrapServers;
+
+    //private String bootstrapServers="my-kafka-0.my-kafka-headless.default.svc.cluster.local:9092";
 
     @Bean
     public Map<String, Object> producerConfigs() {
