@@ -17,4 +17,14 @@ class KafkaTopicConfig {
     public NewTopic topic2() {
         return TopicBuilder.name("reflectoring-2").build();
     }
+
+    @Bean
+    public NewTopic topic3() {
+        return TopicBuilder.name("reflectoring-3").build();
+    }
+
+    @Bean
+    public NewTopic topic4() {
+        return TopicBuilder.name("reflectoring-4").build();
+    }
 }

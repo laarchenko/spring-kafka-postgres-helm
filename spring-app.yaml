@@ -15,6 +15,15 @@ spec:
       containers:
         - name: spring-app
           image: vampir/spring-app:latest
+          env:
+          - name: spring-datasource-url
+            value: jdbc:postgresql://my-postgresql.default.svc.cluster.local:5432/example
+          - name: spring-datasource-username
+            value: postgres
+          - name: spring-datasource-password
+            value: S1E5MbsN8H
+          - name: spring-kafka-bootstrap-servers
+            value: 'my-kafka-0.my-kafka-headless.default.svc.cluster.local:9092'
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
