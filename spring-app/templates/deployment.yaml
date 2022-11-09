@@ -37,9 +37,9 @@ spec:
             - name: spring-datasource-url
               value: {{ .Values.image.env.springDatasourceUrl }}
             - name: spring-datasource-username
-              value: {{ .Values.image.env.springDatasourceUsername }}
+              value: {{ .Values.global.postgresUsername }}
             - name: spring-datasource-password
-              value: {{ .Values.image.env.springDatasourcePassword }}
+              value: {{ .Values.global.postgresPasswd }}
             - name: spring-kafka-bootstrap-servers
               value: {{ .Values.image.env.springKafkaBootstrapServers }}
           ports:

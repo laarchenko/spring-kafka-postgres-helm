@@ -6,5 +6,5 @@
 #kubectl wait --for=condition=ready pod -l app=spring-app
 #sleep 10
 #kubectl logs -l app=spring-app
-helm delete spring-app
+#helm delete spring-app
 helm install spring-app spring-app/

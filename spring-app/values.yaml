@@ -4,13 +4,15 @@
 
 replicaCount: 1
 
+global:
+  postgresUsername: 'postgres'
+  postgresPasswd: 'S1E5MbsN8H'
+
 image:
   repository: vampir/spring-app
   pullPolicy: IfNotPresent
   env:
     springDatasourceUrl: 'jdbc:postgresql://my-postgresql.default.svc.cluster.local:5432/example'
-    springDatasourceUsername: 'postgres'
-    springDatasourcePassword: 'S1E5MbsN8H'
     springKafkaBootstrapServers: 'my-kafka-0.my-kafka-headless.default.svc.cluster.local:9092'
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
