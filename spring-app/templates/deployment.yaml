@@ -37,23 +37,15 @@ spec:
             - name: spring-datasource-url
               value: {{ .Values.image.env.springDatasourceUrl }}
             - name: spring-datasource-username
-              value: {{ .Values.global.postgresUsername }}
+              value: {{ .Values.postgresql.auth.username }}
             - name: spring-datasource-password
-              value: {{ .Values.global.postgresPasswd }}
+              value: {{ .Values.postgresql.auth.postgresPassword }}
             - name: spring-kafka-bootstrap-servers
               value: {{ .Values.image.env.springKafkaBootstrapServers }}
           ports:
             - name: http
               containerPort: 80
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

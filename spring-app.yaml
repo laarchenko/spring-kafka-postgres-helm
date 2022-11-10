@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-app
+  name: spring-k8s-app
 spec:
   selector:
     matchLabels:
-      app: spring-app
+      app: spring-k8s-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: spring-app
+        app: spring-k8s-app
     spec:
       containers:
         - name: spring-app
           image: vampir/spring-app:latest
           env:
           - name: spring-datasource-url
-            value: jdbc:postgresql://my-postgresql.default.svc.cluster.local:5432/example
+            value: jdbc:postgresql://postgresql.default.svc.cluster.local:5432/postgres
           - name: spring-datasource-username
             value: postgres
           - name: spring-datasource-password
             value: S1E5MbsN8H
           - name: spring-kafka-bootstrap-servers
-            value: 'my-kafka-0.my-kafka-headless.default.svc.cluster.local:9092'
+            value: 'kafka-0.kafka-headless.default.svc.cluster.local:9092'
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
